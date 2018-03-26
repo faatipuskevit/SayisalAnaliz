@@ -9,7 +9,6 @@ int debug = 1;
 #define SIZE 10
 
 int main(){
-	//deneme
 	int degree;
 	float x, y[SIZE] = {0};
 
@@ -20,44 +19,13 @@ int main(){
 	y[2] = -6.5;
 	y[3] = 1;
 	
+	
+	
+	printf("\nRegula False kok = %.3f",regulafalse(y,&degree));
 	//printf("\n%f",graphicalmethod(y,&degree));
-	printf("\nbisection kok= %f",bisectionmethod(y,&degree));
+	//printf("\nbisection kok= %f",bisectionmethod(y,&degree));
 	
 	
-	
-	
-	
-	
-	
-	/*int degree;
-	float x;
-	int i;
-	
-	float y[SIZE] = {0};
-	
-	
-	defY(y,&degree);
-	for(i=2;i>=0;i--){	
-		if(y[i] != 0){
-			printf("%.2fx^%d + ",y[i],i);
-		}
-	}	
-	printf("\n");
-	graphicalmethod(y);
-	
-	printf("Burasi");
-	for(i=2;i>=0;i--){	
-		{
-			printf("%.2fx^%d + ",y[i],i);0
-		}
-	}	
-	
-	
-	
-	//scanf("%f",&x);
-	*/
- 	//	printf("%f", calcY(1,y,&degree));
-
 	return 0;
 }
 
