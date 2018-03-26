@@ -9,6 +9,7 @@ int debug = 1;
 #define SIZE 10
 
 int main(){
+	//deneme
 	int degree;
 	float x, y[SIZE] = {0};
 
