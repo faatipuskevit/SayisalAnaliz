@@ -4,19 +4,19 @@ float graphicalmethod(float y[], int *degree){
 	float diff,x0,x1,y1,y2,delta,epsilon;
 	
 	printf("Baslangic degerini(x0) giriniz: ");
-	//printf("x0 = 1,5 \n");
-	//x0 = 1.5;
-	scanf("%f",&x0);
+	printf("x0 = 1,5 \n");
+	x0 = 1.5;
+	//scanf("%f",&x0);
 	
 	printf("Artis miktarini(delta) giriniz: ");
-	//printf("delta = 0.75 \n");
-	//delta = 0.75;
-	scanf("%f", &delta);
+	printf("delta = 0.75 \n");
+	delta = 0.75;
+	//scanf("%f", &delta);
 	
 	printf("Epsilon degerini giriniz: ");
-	scanf("%f", &epsilon);
-	//printf("epsilon = 0.02\n");
-	//epsilon = 0.02;
+	//scanf("%f", &epsilon);
+	printf("epsilon = 0.02\n");
+	epsilon = 0.02;
 	
 	if(debug == 1){
 		printf("k\tx1\ty1\ty2\tdelta");

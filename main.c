@@ -5,6 +5,7 @@ int debug = 1;
 #include "function.h"
 #include "graphicalmethod.h"
 #include "bisectionmethod.h"
+#include "regulafalsemethod.h"
 
 #define SIZE 10
 
@@ -21,9 +22,9 @@ int main(){
 	
 	
 	
-	printf("\nRegula False kok = %.3f",regulafalse(y,&degree));
-	//printf("\n%f",graphicalmethod(y,&degree));
-	//printf("\nbisection kok= %f",bisectionmethod(y,&degree));
+	printf("\n\n graphicalmethod kok %f\n\n",graphicalmethod(y,&degree));
+	printf("\n\n bisection kok= %f\n\n",bisectionmethod(y,&degree));
+	printf("\n\nRegula False kok = %.3f\n\n",regulafalsemethod(y,&degree));
 	
 	
 	return 0;
