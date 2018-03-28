@@ -2,12 +2,16 @@ int debug = 1;
 #include<stdio.h>
 #include<math.h>
 
+#define SIZE 11
+
 #include "function.h"
 #include "graphicalmethod.h"
 #include "bisectionmethod.h"
 #include "regulafalsemethod.h"
+#include "jacobimethod.h"
+#include "newtonraphsonmethod.h"
 
-#define SIZE 10
+
 
 int main(){
 	int degree;
@@ -15,17 +19,21 @@ int main(){
 
 	//defY(y,&degree);
 	degree = 3;
-	y[0] = -9;
-	y[1] = 13.5;
-	y[2] = -6.5;
+	y[0] = -5;
+	y[1] = 0;
+	y[2] = 0;
 	y[3] = 1;
 	
+	printf("\nf(x) = ");
+	writeY(y,&degree);
+	printf("\n");
 	
 	
-	printf("\n\n graphicalmethod kok %f\n\n",graphicalmethod(y,&degree));
-	printf("\n\n bisection kok= %f\n\n",bisectionmethod(y,&degree));
-	printf("\n\nRegula False kok = %.3f\n\n",regulafalsemethod(y,&degree));
-	
+	//printf("\n\n graphicalmethod kok %f\n\n",graphicalmethod(y,&degree));
+	//printf("\n\n bisection kok= %f\n\n",bisectionmethod(y,&degree));
+	//printf("\n\nRegula False kok = %.3f\n\n",regulafalsemethod(y,&degree));
+	// ???? printf("\n\n jacobi method = %.3f \n\n", jacobimethod(y,&degree));
+	printf("\nnewtonraphson methoda gore kok = %.3f",newtonraphsonmethod(y,&degree));
 	
 	return 0;
 }

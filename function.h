@@ -1,3 +1,14 @@
+void writeY(float y[], int *degree){
+	int i;
+	
+	for(i=*degree;i>=0;i--){	
+		if(y[i] != 0){
+			printf("%.2fx^%d + ",y[i],i);
+		}
+	}
+	printf("\n");
+}
+
 void defY(float *y, int *degree){
 	int i;
 	
@@ -9,13 +20,8 @@ void defY(float *y, int *degree){
 		scanf("%f", &y[i]);
 	}
 	
-	for(i=*degree;i>=0;i--){	
-		if(y[i] != 0){
-			printf("%.2fx^%d + ",y[i],i);
-		}
-	}
-	printf("\n");
 }
+
 
 float calcY(float x, float *y, int *degree){
 	int i;
