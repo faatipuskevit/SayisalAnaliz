@@ -1,59 +1,57 @@
-float graphicalmethod(float y[], int *degree){
-	int k = 1;
-	float kok;
-	float diff,x0,x1,y1,y2,delta,epsilon;
+//Graphical Method
+/*
+	Keeps adding delta to start point until the change in the sign of the function.
+	When the sign changes it means there is a root.
+	Delta gets halved.`
+	We take the last x0.
+	We keep the process going on until delta(difference between x(k+1) and x(k) < epsilon.
+*/
+
+
+void graphicalmethod(){
+	int k = 1,degree,limit = 1000;
+	float root,diff,x0,delta,epsilon,x1,y1,y2;
+	int devam = 1;
+	char devammi = 'e';
 	
-	printf("Baslangic degerini(x0) giriniz: ");
-	printf("x0 = 1,5 \n");
-	x0 = 1.5;
-	//scanf("%f",&x0);
+	printf("\n\n");
+	//system("CLS");
+	printf("Grafik Yöntemi Ýle Kök Bulma");
+	printf("\nKaçýncý dereceden bir fonksiyon gireceksiniz: ");
+	scanf("%d", &degree);
 	
-	printf("Artis miktarini(delta) giriniz: ");
-	printf("delta = 0.75 \n");
-	delta = 0.75;
-	//scanf("%f", &delta);
+	float y[degree];
 	
-	printf("Epsilon degerini giriniz: ");
-	//scanf("%f", &epsilon);
-	printf("epsilon = 0.02\n");
-	epsilon = 0.02;
+	defY(y,&degree);
 	
-	if(debug == 1){
-		printf("k\tx1\ty1\ty2\tdelta");
-	}
+	printf("\nBaþlangýç deðerini(x0) giriniz: ");
+	scanf("%f", &x0);
+	
+	printf("Delta(Her adýmda x'deki deðiþim miktarý) deðerini giriniz: ");
+	scanf("%f", &delta);
+	
+	printf("Epsilon\'u giriniz: ");
+	scanf("%f", &epsilon);	
 	
 	x1=x0;
 	do{
 		do{
-			y1 = calcY(x1,y,degree);
-			y2 = calcY((x1 + delta),y,degree);
-			if(debug == 1){
-				printf("\n%d\t%.3f\t%.3f\t%.3f\t%.3f\t",k,x1,y1,y2,delta);
-			}
+			y1 = calcY(x1,y,degree); //value of f(x1)
+			y2 = calcY((x1 + delta),y,degree); //value of f(x1 + delta)
 			
-			x1 += delta;
-
-			
-			k += 1;
+			x1 += delta; //x1 is increased by delta
+			k += 1; // Counter
 			
 		}while(y1*y2 > 0);
-		
-		x1-=delta;
-		delta /= 2;
-		
-		//k x1 y1 y2 delta;
-		if(debug == 1){
-				printf("\n%d\t%.3f\t%.3f\t%s\t%.3f\t",k-1,(x1+delta*2),y1,"  -",delta*2);
-		}
-		
+			x1-=delta; //When the sign changes we have to use the x value before sign change so we subtract delta.
+			delta /= 2; // Delta is halved.
 	}while(delta > epsilon);
 	
-	if(y2 == 0){
-		kok = x1 + delta;
+	if(y2 == 0){ //Checks if x + delta is a root or not.
+		root = x1 + delta;
 	}else{
-		kok = x1;
+		root = x1;
 	}
-	
-	return kok;	
+		printf("\nKök = %f",root);
 }
 

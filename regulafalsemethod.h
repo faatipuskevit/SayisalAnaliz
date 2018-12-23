@@ -1,30 +1,30 @@
-float regulafalsemethod(float y[], int *degree){
+void regulafalsemethod(){
+	int k = 1, degree;
 	float xavg, xtop, xbot, epsilon, yavg, ytop , ybot;
-	int k = 1;
 	
-	printf("Alt siniri giriniz: ");
-	printf("1.75\n");
-	xbot = 0; 
-	//scanf("%f",&xbot);
+	printf("\n\n");
+	//system("CLS");
+	printf("Regula False Yöntemi Ýle Kök Bulma");
+	printf("\nKaçýncý dereceden bir fonksiyon gireceksiniz: ");
+	scanf("%d", &degree);
 	
-	printf("Ust siniri giriniz: ");
-	printf("2.5\n");
-	xtop = 7;
-	//scanf("%f", &xtop);
+	float y[degree];
+	defY(y,&degree);
 	
-	printf("Epsilon degerini giriniz: ");
-	printf("0.007\n");
-	epsilon = 0.002;
-	//scanf("%f", &epsilon);
+	printf("Alt sýnýrý giriniz: ");
+	scanf("%f",&xbot);
 	
-	if(debug == 1){
-		printf("\nk \txavg \tyavg \txbot \tybot \txtop \tytop");
-	}
+	printf("Ust sýnýrý giriniz: ");
+	scanf("%f", &xtop);
+	
+	printf("Epsilon deðerini giriniz: ");
+	scanf("%f", &epsilon);
+	
 	
 	if(calcY(xtop,y,degree) == 0){
-		return xtop;
+		printf("Kök = %f", xtop);
 	}else if(calcY(xbot,y,degree) == 0){
-		return xbot;
+		printf("Kök = %f", xbot);
 	}else{
 		do{			
 						
@@ -34,9 +34,6 @@ float regulafalsemethod(float y[], int *degree){
 			xavg = (xtop*ybot - xbot*ytop)/(ybot-ytop);
 			yavg = calcY(xavg,y,degree);
 			
-			if(debug == 1){
-				printf("\n%d \t%.3f \t%.3f \t%.3f \t%.3f \t%.3f \t%.3f",k,xavg,yavg,xbot,ybot,xtop,ytop);
-			}
 			
 			if ((ybot * yavg) < 0){
 				xtop = xavg;
@@ -47,7 +44,6 @@ float regulafalsemethod(float y[], int *degree){
 			//printf( "\nabs(yavg) = %.3f yavg = %.3f " ,fabsf(yavg),yavg);
 			k += 1;
 		}while(fabsf(yavg) > epsilon);
-		return xavg;
-		
+		printf("Kök = %f", xavg);	
 	}
 }

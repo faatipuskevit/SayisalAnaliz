@@ -1,30 +1,31 @@
-float bisectionmethod(float y[], int *degree){
+void bisectionmethod(){
+	int k = 1, degree;
 	float xavg, xtop, xbot, epsilon, yavg, ytop , ybot;
-	int k = 1;
+
+	printf("\n\n");
+	//system("CLS");
+	printf("Bisection Yöntemi Ýle Kök Bulma");
+	printf("\nKaçýncý dereceden bir fonksiyon gireceksiniz: ");
+	scanf("%d",&degree);
 	
-	printf("Alt siniri giriniz: ");
-	printf("1.75\n");
-	xbot = 1.75; 
-	//scanf("%f",&xbot);
+	float y[degree];
 	
-	printf("Ust siniri giriniz: ");
-	printf("2.5\n");
-	xtop = 2.5;
-	//scanf("%f", &xtop);
+	defY(y,&degree);
 	
-	printf("Epsilon degerini giriniz: ");
-	printf("0.007\n");
-	epsilon = 0.002;
-	//scanf("%f", &epsilon);
+	printf("Alt sýnýrý giriniz:  ");
+	scanf("%f",&xbot);
 	
-	if(debug == 1){
-		printf("\nk \txavg \tyavg \txbot \tybot \txtop \tytop");
-	}
+	printf("Üst sýnýrý giriniz: ");
+	scanf("%f", &xtop);
+	
+	printf("Epsilon deðerini giriniz: ");
+	scanf("%f", &epsilon);
+	
 	
 	if(calcY(xtop,y,degree) == 0){
-		return xtop;
+		printf("Kök = %f", xtop);
 	}else if(calcY(xbot,y,degree) == 0){
-		return xbot;
+		printf("Kök = %f", xbot);
 	}else{
 		do{			
 			xavg = (xtop + xbot) / 2;
@@ -32,9 +33,6 @@ float bisectionmethod(float y[], int *degree){
 			ytop = calcY(xtop,y,degree);
 			ybot = calcY(xbot,y,degree);
 			
-			if(debug == 1){
-				printf("\n%d \t%.3f \t%.3f \t%.3f \t%.3f \t%.3f \t%.3f",k,xavg,yavg,xbot,ybot,xtop,ytop);
-			}
 			
 			if ((ybot * yavg) < 0){
 				xtop = xavg;
@@ -45,7 +43,6 @@ float bisectionmethod(float y[], int *degree){
 			//printf( "\nabs(yavg) = %.3f yavg = %.3f " ,fabsf(yavg),yavg);
 			k += 1;
 		}while(fabsf(yavg) > epsilon);
-		return xavg;
-		
+		printf("Kök = %f", xavg);
 	}
 }
